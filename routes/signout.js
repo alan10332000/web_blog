@@ -3,9 +3,13 @@ const router = express.Router()
 
 const checkLogin = require('../middlewares/check').checkLogin
 
-// GET /signout 登出
+// GET /signout ??
 router.get('/', checkLogin, function (req, res) {
-  res.send('登出')
+  // ?? session ?????
+  req.session.user = null
+  req.flash('success', '????')
+  // ??????????
+  res.redirect('/posts')
 })
 
 module.exports = router
