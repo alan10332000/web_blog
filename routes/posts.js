@@ -65,10 +65,10 @@ router.get('/:postId', function (req, res, next) {
   const postId = req.params.postId
 
   Promise.all([
-      PostModel.getPostById(postId), // 获取文章信息
-      CommentModel.getComments(postId), // 获取该文章所有留言
-      PostModel.incPv(postId) // pv 加 1
-    ])
+    PostModel.getPostById(postId), // 获取文章信息
+    CommentModel.getComments(postId), // 获取该文章所有留言
+    PostModel.incPv(postId) // pv 加 1
+  ])
     .then(function (result) {
       const post = result[0]
       const comments = result[1]
@@ -134,9 +134,9 @@ router.post('/:postId/edit', checkLogin, function (req, res, next) {
       }
 
       PostModel.updatePostById(postId, {
-          title: title,
-          content: content
-        })
+        title: title,
+        content: content
+      })
         .then(function () {
           req.flash('success', '编辑文章成功')
           // 编辑成功后跳转到上一页
