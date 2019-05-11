@@ -12,12 +12,12 @@ describe('signup', function () {
     beforeEach(function (done) {
       // 创建一个用户
       User.create({
-          name: testName1,
-          password: '123456',
-          avatar: '',
-          gender: 'x',
-          bio: ''
-        })
+        name: testName1,
+        password: '123456',
+        avatar: '',
+        gender: 'x',
+        bio: ''
+      })
         .exec()
         .then(function () {
           done()
@@ -28,10 +28,10 @@ describe('signup', function () {
     afterEach(function (done) {
       // 删除测试用户
       User.deleteMany({
-          name: {
-            $in: [testName1, testName2]
-          }
-        })
+        name: {
+          $in: [testName1, testName2]
+        }
+      })
         .exec()
         .then(function () {
           done()

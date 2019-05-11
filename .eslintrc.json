@@ -1,10 +1,21 @@
 {
+  "env": {
+    "commonjs": true,
+    "es6": true,
+    "node": true
+  },
   "extends": "standard",
   "globals": {
+    "Atomics": "readonly",
+    "SharedArrayBuffer": "readonly",
     "describe": true,
     "beforeEach": true,
     "afterEach": true,
     "after": true,
     "it": true
-  }
+  },
+  "parserOptions": {
+    "ecmaVersion": 2018
+  },
+  "rules": {}
 }
